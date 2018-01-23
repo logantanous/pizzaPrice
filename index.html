@@ -9,93 +9,46 @@
   </head>
   <body>
     <div class="container">
+      <div class="jumbotron">
+        <h1>Welcome to the Greatest Bank</h1>
+        <p>It's truly amazing</p>
+      </div>
       <form id="new-account" class="">
         <div class="row">
-          <div class="col-md-6">
-            <h3>Register a new account:</h3>
-            <p>Name:</p>
-            <input id="name" type="text" name="" value="bo">
-            <span class="btn btn-primary existing-user">Existing User?</span>
-            <span class="btn btn-info new-user">New User?</span>
-            <div class="form-group initial">
-              <p>Initial Deposit:</p>
-              <input id="initial-deposit" type="number" name="" value="">
-            </div>
+          <div class="name col-sm-12">
+            <h2>Name</h2>
+            <input id="name" type="text">
+            <span class="btn btn-warning existing-user">Existing User?</span>
+            <span class="btn btn-warning new-user">New User?</span>
           </div>
-          <div class="col-md-6">
-            <div class="existing">
-              <h3>Deposit or withdraw funds:</h3>
-              <p>Deposit Amount:</p>
-              <input id="deposit-amount" class="bank-action" type="number" name="" value="">
-              <p>Withdrawal Amount:</p>
-              <input id="withdrawal-amount" class="bank-action" type="number" name="" value="">
-            </div>
+          <div class="initial form-group col-md-6">
+            <h2>Initial Deposit</h2>
+            <input id="initial-deposit" type="number" name="" value="">
+          </div>
+          <div class="existing col-sm-6">
+            <h2>Deposit or withdraw funds</h2>
+            <p>Deposit Amount</p>
+            <input id="deposit-amount" class="bank-action" type="number" name="" value="">
+            <p>Withdrawal Amount</p>
+            <input id="withdrawal-amount" class="bank-action" type="number" name="" value="">
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <center>
               <br>
-              <button id="submit" type="submit" name="button">Submit</button>
+              <button id="submit" type="submit" name="button" class="btn btn-primary">Submit</button>
             </center>
           </div>
         </div>
       </form>
       <center>
 
-        <h3>Current Balance:</h3>
+        <h2>Current Balance</h2>
         <p id="current-balance"></p>
       <center>
 
     </div><!--end of container-->
 
-    <!--<div class="container">
-      <h1>Movie Tickets</h1>
-
-      <div class="row">
-
-        <div class="col-md-6">
-          <h2>Buy a ticket</h2>
-          <form id="new-ticket">
-
-
-            <div class="form-group">
-              <label for="movies">What movie?</label>
-              <select id="movie" name="movies">
-                <option value="diehard" class="r">Die Hard - R</option>
-                <option value="jumanji" class="pg13">Jumanji - PG-13</option>
-                <option value="paddington" class="pg">Paddington 2 - PG</option>
-                <option value="lastjedi" class="pg13">Star Wars: The Last Jedi - PG-13</option>
-                <option value="blackpanther" class="pg13">Black Panther - PG-13</option>
-              </select>
-
-            </div>
-            <div class="form-group">
-              <label for="time">What time?</label>
-              <input type="text" class="form-control" id="time">
-            </div>
-            <div class="form-group">
-              <label for="age">How old are you?</label>
-              <input type="number" class="form-control" id="age">
-            </div>
-
-            <button type="submit" class="btn btn-primary">Buy</button>
-          </form>
-        </div>
-
-        <div class="col-md-6">
-          <div id="total">
-            <h2>Total</h2>
-            <p>Movie selected: <span class="movie-output"></span></p>
-            <p>Time selected: <span class="time-output"></span></p>
-            <p>Your age: <span class="age-output"></span></p>
-            <p>Your total price: <span class="price-output"></span></p>
-
-
-          </div>
-        </div>
-
-      </div>
-    </div>-->
   </body>
 </html>

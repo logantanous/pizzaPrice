@@ -73,12 +73,16 @@ function clearFields() {
     $(".initial").show();
     $(".existing").hide();
   });
+
 }
 
 // user interface logic
 $(document).ready(function() {
 
   clearFields();
+  $("span.btn").click(function() {
+    $(".name").removeClass("col-sm-12").addClass("col-sm-6");
+  });
 
   $("#new-account").submit(function(event) {
     $("#current-balance").text("");
