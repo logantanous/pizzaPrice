@@ -36,43 +36,69 @@ BankAccount.prototype.bankAction = function(inputtedDepositAmount, inputtedWithd
 //   return $("#current-balance").html(this.balance);
 // }
 
-function doesAccountExist(account, name) {
+function doesAccountExist(account, name, initialDeposit) {
   var i = 0;
   allAccounts.forEach(function(account) {
+    debugger;
     if (account.name === name) {
       accountExists = true;
       index = i
       return(index);
+
     }
     i++;
   });
-
-  if (!accountExists) {
+  if (!accountExists && !isNaN(initialDeposit)) {
     allAccounts.push(account);
+  } else if (!accountExists && isNaN(initialDeposit)) {
+    alert("You need to create a new account");
   }
 }
 
 // user interface logic
 $(document).ready(function() {
+  $("#initial-deposit").focus(function() {
+    $(".bank-action").val("");
+  });
+
+  $(".bank-action").focus(function() {
+    $("#initial-deposit").val("");
+  });
+
+  $(".existing-user").click(function() {
+    $(".existing").show();
+    $(".initial").hide();
+  });
+
+  $(".new-user").click(function() {
+    $(".initial").show();
+    $(".existing").hide();
+  });
+
   $("#new-account").submit(function(event) {
     var inputtedName = $("input#name").val();
     var inputtedInitialDeposit = parseInt($("input#initial-deposit").val());
     var inputtedDepositAmount = parseInt($("input#deposit-amount").val());
     var inputtedWithdrawalAmount = parseInt($("input#withdrawal-amount").val());
     var inputtedCurrentBalance = parseInt($("input#current-balance").val());
-    var newAccount = new BankAccount(inputtedName, inputtedInitialDeposit);
+    var newAccount = new BankAccount (inputtedName, inputtedInitialDeposit);
 
 
-     doesAccountExist(newAccount, inputtedName);
+     doesAccountExist(newAccount, inputtedName, inputtedInitialDeposit);
 
      if (accountExists === true ) {
+
        allAccounts[index].bankAction(inputtedDepositAmount, inputtedWithdrawalAmount);
      } else {
-       newAccount.bankAction(inputtedDepositAmount, inputtedWithdrawalAmount);
+       newAccount.currentBalance();
      }
+     accountExists = false;
+    //else {
+    //    //newAccount.bankAction(inputtedDepositAmount, inputtedWithdrawalAmount);
+    //  }
 
   //  console.log(newAccount);
-    //newAccount.currentBalance();
+
     //newAccount.bankAction(inputtedDepositAmount, inputtedWithdrawalAmount)
 
 
