@@ -1,53 +1,73 @@
 //business logic
-function Ticket(movie, time, age) {
-  this.movie = movie;
-  this.time = time;
-  this.age = age;
+var allAccounts = [];
+var accountExists = false;
+var index = 0;
+
+function BankAccount(name, initialDeposit) {
+  this.name = name;
+  this.initialDeposit = initialDeposit;
+  this.balance = initialDeposit;
 }
 
-Ticket.prototype.fullPrice = function() {
-  var price = 12;
-  if (this.age > 55) {
-    price = price - 2;
-  }
-  if (this.age < 12) {
-    price = price - 3;
-  }
-  if (this.time < 15) {
-    price = price - 2;
-  }
-  return price;
+BankAccount.prototype.currentBalance = function() {
+  return $("#current-balance").html(this.initialDeposit);
 }
 
-function ageCheck(age, rating) {
-  if (age < 17 && rating === "r") {
-    return "you are too young to see this movie"
-  } else {
-    return false;
-  }
+BankAccount.prototype.deposit = function(inputtedDepositAmount) {
+  this.balance = parseInt(this.balance) + inputtedDepositAmount;
+  return $("#current-balance").html(this.balance);
 }
 
+BankAccount.prototype.withdraw = function(inputtedWithdrawalAmount) {
+  this.balance = parseInt(this.balance) - inputtedWithdrawalAmount;
+  return $("#current-balance").html(this.balance);
+}
+
+function doesAccountExist(account, name) {
+  var i = 0;
+  allAccounts.forEach(function(account) {
+    if (account.name === name) {
+      accountExists = true;
+      index = i
+      return(index);
+    }
+    i++;
+  });
+
+  if (!accountExists) {
+    allAccounts.push(account);
+  }
+}
 
 // user interface logic
 $(document).ready(function() {
-  $("#new-ticket").submit(function(event) {
-    var inputtedMovie = $("#movie option:selected").text();
-    var inputtedTime = parseInt($("input#time").val());
-    var inputtedAge = parseInt($("input#age").val());
-    var movieRating = $("#movie option:selected").attr("class");
-    var newTicket = new Ticket(inputtedMovie, inputtedTime, inputtedAge);
+  $("#new-account").submit(function(event) {
+    var inputtedName = $("input#name").val();
+    var inputtedInitialDeposit = parseInt($("input#initial-deposit").val());
+    var inputtedDepositAmount = parseInt($("input#deposit-amount").val());
+    var inputtedWithdrawalAmount = parseInt($("input#withdrawal-amount").val());
+    var inputtedCurrentBalance = parseInt($("input#current-balance").val());
+    var newAccount = new BankAccount(inputtedName, inputtedInitialDeposit);
+
+
+    //console.log(allAccounts.findIndex(findAccount));
+    //
+     doesAccountExist(newAccount, inputtedName);
+    // if (accountExists === true ) {
+    //   console.log(allAccounts[index]);
+    // }
 
 
 
-    if (ageCheck(inputtedAge, movieRating) !== false ) {
-      alert(ageCheck(inputtedAge, movieRating));
-    } else {
-      $("#total").show();
-      $(".movie-output").text(inputtedMovie);
-      $(".time-output").text(inputtedTime);
-      $(".age-output").text(inputtedAge);
-      $(".price-output").text("$" + newTicket.fullPrice());
-    }
+
+
+
+  //  console.log(newAccount);
+    newAccount.currentBalance();
+    newAccount.deposit(inputtedDepositAmount);
+    newAccount.withdraw(inputtedWithdrawalAmount);
+
+
 
     event.preventDefault();
   });

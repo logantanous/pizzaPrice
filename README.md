@@ -1,12 +1,32 @@
-# address-book
+# bank-account
 
-##### Epicodus Section: JavaScript OO - Address Book
-
-#### By Epicodus Lessons
 
 ## Description
 
 This application is a demonstration of constructors and prototypes using JavaScript to create a simple Address Book app.
+
+## Specs
+
+Program returns current value
+example output: [$400]
+
+Program takes name and initial deposit
+example input: [bob jones], [$300]
+example output: [You created an account]
+
+Program takes Deposit Amount
+example input: [$20] adds to current amount
+example output: [current value]
+
+Program takes Withdraw Amount
+example input: [$20] removes from current amount
+example output: [current value]
+
+Program displays name if it matches an existing
+example input: [Bob Jones]
+example output: [current value]
+
+
 
 ## Setup
 

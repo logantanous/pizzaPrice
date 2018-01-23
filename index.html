@@ -5,10 +5,45 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.12.0.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Movie Tickets</title>
+    <title>Bank Account</title>
   </head>
   <body>
     <div class="container">
+      <form id="new-account" class="">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Register a new account:</h3>
+            <p>Name:</p>
+            <input id="name" type="text" name="" value="bo">
+            <p>Initial Deposit:</p>
+            <input id="initial-deposit" type="number" name="" value="">
+          </div>
+          <div class="col-md-6">
+            <h3>Deposit or withdraw funds:</h3>
+            <p>Deposit Amount:</p>
+            <input id="deposit-amount" type="number" name="" value="">
+            <p>Withdrawal Amount:</p>
+            <input id="withdrawal-amount" type="number" name="" value="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <center>
+              <br>
+              <button id="submit" type="submit" name="button">Submit</button>
+            </center>
+          </div>
+        </div>
+      </form>
+      <center>
+
+        <h3>Current Balance:</h3>
+        <p id="current-balance"></p>
+      <center>
+
+    </div><!--end of container-->
+
+    <!--<div class="container">
       <h1>Movie Tickets</h1>
 
       <div class="row">
@@ -16,6 +51,8 @@
         <div class="col-md-6">
           <h2>Buy a ticket</h2>
           <form id="new-ticket">
+
+
             <div class="form-group">
               <label for="movies">What movie?</label>
               <select id="movie" name="movies">
@@ -53,6 +90,6 @@
         </div>
 
       </div>
-    </div>
+    </div>-->
   </body>
 </html>
