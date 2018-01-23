@@ -12,16 +12,29 @@ function BankAccount(name, initialDeposit) {
 BankAccount.prototype.currentBalance = function() {
   return $("#current-balance").html(this.initialDeposit);
 }
+BankAccount.prototype.bankAction = function(inputtedDepositAmount, inputtedWithdrawalAmount) {
+  if (isNaN(inputtedDepositAmount)) {
+    inputtedDepositAmount = 0;
+  }
+  if (isNaN(inputtedWithdrawalAmount)) {
+    inputtedWithdrawalAmount = 0;
+  }
 
-BankAccount.prototype.deposit = function(inputtedDepositAmount) {
   this.balance = parseInt(this.balance) + inputtedDepositAmount;
-  return $("#current-balance").html(this.balance);
-}
-
-BankAccount.prototype.withdraw = function(inputtedWithdrawalAmount) {
   this.balance = parseInt(this.balance) - inputtedWithdrawalAmount;
   return $("#current-balance").html(this.balance);
+
 }
+
+// BankAccount.prototype.deposit = function(inputtedDepositAmount) {
+//   this.balance = parseInt(this.balance) + inputtedDepositAmount;
+//   return $("#current-balance").html(this.balance);
+// }
+//
+// BankAccount.prototype.withdraw = function(inputtedWithdrawalAmount) {
+//   this.balance = parseInt(this.balance) - inputtedWithdrawalAmount;
+//   return $("#current-balance").html(this.balance);
+// }
 
 function doesAccountExist(account, name) {
   var i = 0;
@@ -50,22 +63,18 @@ $(document).ready(function() {
     var newAccount = new BankAccount(inputtedName, inputtedInitialDeposit);
 
 
-    //console.log(allAccounts.findIndex(findAccount));
-    //
      doesAccountExist(newAccount, inputtedName);
-    // if (accountExists === true ) {
-    //   console.log(allAccounts[index]);
-    // }
 
-
-
-
-
+     if (accountExists === true ) {
+       allAccounts[index].bankAction(inputtedDepositAmount, inputtedWithdrawalAmount);
+     } else {
+       newAccount.bankAction(inputtedDepositAmount, inputtedWithdrawalAmount);
+     }
 
   //  console.log(newAccount);
-    newAccount.currentBalance();
-    newAccount.deposit(inputtedDepositAmount);
-    newAccount.withdraw(inputtedWithdrawalAmount);
+    //newAccount.currentBalance();
+    //newAccount.bankAction(inputtedDepositAmount, inputtedWithdrawalAmount)
+
 
 
 
