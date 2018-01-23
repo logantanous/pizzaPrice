@@ -39,12 +39,10 @@ BankAccount.prototype.bankAction = function(inputtedDepositAmount, inputtedWithd
 function doesAccountExist(account, name, initialDeposit) {
   var i = 0;
   allAccounts.forEach(function(account) {
-    debugger;
     if (account.name === name) {
       accountExists = true;
       index = i
       return(index);
-
     }
     i++;
   });
@@ -52,11 +50,12 @@ function doesAccountExist(account, name, initialDeposit) {
     allAccounts.push(account);
   } else if (!accountExists && isNaN(initialDeposit)) {
     alert("You need to create a new account");
+  } else if (accountExists && !isNaN(initialDeposit)) {
+    alert("You already have an account. Please make a deposit or withdrawl")
   }
 }
 
-// user interface logic
-$(document).ready(function() {
+function clearFields() {
   $("#initial-deposit").focus(function() {
     $(".bank-action").val("");
   });
@@ -74,8 +73,15 @@ $(document).ready(function() {
     $(".initial").show();
     $(".existing").hide();
   });
+}
+
+// user interface logic
+$(document).ready(function() {
+
+  clearFields();
 
   $("#new-account").submit(function(event) {
+    $("#current-balance").text("");
     var inputtedName = $("input#name").val();
     var inputtedInitialDeposit = parseInt($("input#initial-deposit").val());
     var inputtedDepositAmount = parseInt($("input#deposit-amount").val());
@@ -83,26 +89,14 @@ $(document).ready(function() {
     var inputtedCurrentBalance = parseInt($("input#current-balance").val());
     var newAccount = new BankAccount (inputtedName, inputtedInitialDeposit);
 
-
      doesAccountExist(newAccount, inputtedName, inputtedInitialDeposit);
 
      if (accountExists === true ) {
-
        allAccounts[index].bankAction(inputtedDepositAmount, inputtedWithdrawalAmount);
      } else {
        newAccount.currentBalance();
      }
      accountExists = false;
-    //else {
-    //    //newAccount.bankAction(inputtedDepositAmount, inputtedWithdrawalAmount);
-    //  }
-
-  //  console.log(newAccount);
-
-    //newAccount.bankAction(inputtedDepositAmount, inputtedWithdrawalAmount)
-
-
-
 
     event.preventDefault();
   });
