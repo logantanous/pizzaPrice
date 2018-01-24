@@ -32,7 +32,8 @@ $(document).ready(function() {
       $(this).append(checkTurn()).attr('disabled','disabled');
       checkValues();
       if (checkValues() == "Winner is X" || checkValues() == "Winner is O") {
-        $(".result").html(checkValues());
+        $(".result")append(checkValues());
+        window.setTimeout( show_popup, 1000 );
       }
     }
   })
@@ -40,6 +41,5 @@ $(document).ready(function() {
   $(".reset").on("click", function() {
     $(".btn").removeAttr('disabled');
     $("p").remove();
-    $(".result").html("");
   })
 });
