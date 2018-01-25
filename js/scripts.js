@@ -1,4 +1,7 @@
 var board = { }; // main object
+var board = [];
+var xCoordinate = 1;
+var yCoordinate = 1;
 
 function Space(xCoord, yCoord) {
   this.xCoord = xCoord;
@@ -13,11 +16,8 @@ function Player(character, turn) {
 }
 
 player1 = new Player("x",true);
-player2 = new Player("o",false);
 
-var board = [];
-var xCoordinate = 1;
-var yCoordinate = 1;
+player2 = new Player("o",false);
 
 Space.prototype.changeX = function() {
     this.xCoord = xCoordinate;
@@ -34,14 +34,25 @@ Space.prototype.changeY = function() {
     }
 }
 
-for (var x = 0; x <= 9; x++) {
-  board[x] = new Space(x,yCoordinate);
-  board[x].changeY();
-  board[x].changeX();
+function checkValues() {
+  for (i = 0; i < 9; i++) {
+    if ($(".a"+i).children("p").text() == "xxx") {
+      return "Winner is X";
+    }
+    if ($(".a"+i).children("p").text() == "ooo") {
+      return "Winner is O";
+    }
+  }
 }
 
-
 $(document).ready(function() {
+
+  for (var x = 1; x <= 9; x++) {
+    board[x] = new Space(x,yCoordinate);
+    board[x].changeY();
+    board[x].changeX();
+  }
+
   $(".btn").click(function(){
     var myString = $(this).attr("id");
     var myRegexp = /.(.*?)_(.*?)$/;
@@ -59,7 +70,8 @@ $(document).ready(function() {
         player2.turn = true;
         $(this).append("<p>"+player1.character+"</p>");
         board[objectNumber].character = player1.character;
-      } else {
+      }
+      else {
         player1.turn = true;
         player2.turn = false;
         $(this).append("<p>"+player2.character+"</p>");
@@ -67,10 +79,22 @@ $(document).ready(function() {
       }
 
       board[objectNumber].spotTaken = true;
-
+      //console.log(board[objectNumber]);
       //make a prompt to ask for character
       $(".result").html("");
-      console.log(objectNumber);
+    }
+
+    checkValues();
+    if (checkValues() == "Winner is X" || checkValues() == "Winner is O") {
+      $(".result").html(checkValues());
+    }
+  })
+  $(".reset").on("click", function() {
+    $("p").remove();
+    $(".result").html("");
+    for (var x = 1; x <= 9; x++) {
+      board[x].spotTaken = false;
+      board[x].character = "";
     }
   })
 })
