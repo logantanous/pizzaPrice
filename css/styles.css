@@ -1,8 +1,13 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -10px;
+}
+
 .container {
   margin-top: 20px;
-  /*-ms-transform: skew(20deg,10deg);
-  -webkit-transform: skew(20deg,10deg);
-  transform: skew(20deg,10deg); */
+  width: 800px;
   white-space: nowrap;
   max-width: 99%;
 }
@@ -16,4 +21,51 @@
   vertical-align: middle;
 }
 
-h3 {  height:58px;vertical-align: middle;}
+.col-md-6 h1,h3 {text-align: center}
+
+.col-md-6 h3 {margin-top:10px;}
+
+.header {
+  background: black;
+  color: white;
+  position: relative;
+  top: 0px;
+}
+
+.steps .row .col h6,p {color:white}
+
+.steps .row .col {
+  width: 90%;
+  max-width: 120px;
+  margin-top: 20px;
+  margin-right: 10%;
+  height: 55px;
+  position: relative;
+  background: #00658C
+}
+
+.steps .row .col:before {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: 0;
+  width: 0;
+  height: 55px;
+  border-left: 20px solid #00658C;
+  border-top: 27px solid transparent;
+  border-bottom: 27px solid transparent;
+}
+
+.pizza {
+  max-height: 300px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.inputText {
+   width:75px;
+   display:inline-block;
+   text-align:left
+}
+
+.next {margin-top: 20px;}

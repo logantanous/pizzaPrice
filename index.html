@@ -3,18 +3,59 @@
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.12.0.js"></script>
     <script src="js/scripts.js"></script>
     <title>Pizza Picker</title>
   </head>
   <body>
     <div class="container">
-      <div class="row">
+      <div class="row header">
         <div class="col-md-6">
           <h1>Toppings Menu</h1>
         </div>
         <div class="col-md-6">
           <h3><span class="cap">Grab and Go!</span></h3>
         </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="pizzaContainer">
+            <center>
+              <img class="pizza" src="img/cheesepizza.png" alt="cheese">
+            </center>
+          </div>
+          <div class="step1">
+            <h3>Pick a Size</h3>
+            <center>
+              <form class="">
+                <input type="radio" name="cheese" value="small" checked> <div class="inputText">Small</div><br>
+                <input type="radio" name="cheese" value="medium"> <div class="inputText">Medium</div><br>
+                <input type="radio" name="cheese" value="large"> <div class="inputText">Large</div>
+              </form>
+              <button class="next" type="button" name="button">Next</button>
+            </center>
+          </div>
+          <!--<img class="topping" id="ham" src="http://liguriafoods.com/wp-content/uploads/2014/06/canadian-bacon.jpg" alt="ham">-->
+        </div>
+      </div>
+      <div class="steps">
+        <div class="row">
+          <div class="col on">
+            <h6>Step 1</h6>
+            <p>Size</p>
+          </div>
+          <div class="col on">
+            <h6>Step 2</h6>
+            <p>Cheese</p>
+          </div>
+          <div class="col on">
+            <h6>Step 3</h6>
+            <p>Sauce</p>
+          </div>
+          <div class="col on">
+            <h6>Step 4</h6>
+            <p>Toppings</p>
+          </div>
         </div>
       </div>
       <button class="calculate" type="button" name="button">Submit</button>
