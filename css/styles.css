@@ -58,8 +58,8 @@ body, html {
 
 .pizza {
   max-height: 300px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .inputText {
@@ -69,3 +69,13 @@ body, html {
 }
 
 .next {margin-top: 20px;}
+
+.step2,.step3,.step4 {display:none}
+
+#current {background:#FF3334;}
+
+#current:before {
+  border-left: 20px solid #FF3334;
+}
+
+.result {margin-top: 20px;}

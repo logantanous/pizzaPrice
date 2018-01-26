@@ -27,20 +27,52 @@
           <div class="step1">
             <h3>Pick a Size</h3>
             <center>
-              <form class="">
-                <input type="radio" name="cheese" value="small" checked> <div class="inputText">Small</div><br>
-                <input type="radio" name="cheese" value="medium"> <div class="inputText">Medium</div><br>
-                <input type="radio" name="cheese" value="large"> <div class="inputText">Large</div>
+              <form>
+                <input type="radio" name="size" value="small" checked> <div class="inputText">Small</div><br>
+                <input type="radio" name="size" value="medium"> <div class="inputText">Medium</div><br>
+                <input type="radio" name="size" value="large"> <div class="inputText">Large</div>
               </form>
-              <button class="next" type="button" name="button">Next</button>
             </center>
           </div>
-          <!--<img class="topping" id="ham" src="http://liguriafoods.com/wp-content/uploads/2014/06/canadian-bacon.jpg" alt="ham">-->
+          <div class="step2">
+            <h3>Cheese</h3>
+            <center>
+              <form>
+                <input type="checkbox" name="cheese" value="true" checked> <div class="inputText">Cheese</div><br>
+              </form>
+            </center>
+          </div>
+          <div class="step3">
+            <h3>Cheese &amp; Sauce</h3>
+            <center>
+              <form>
+                <input type="radio" name="sauce" value="marinara" checked> <div class="inputText">Marinara</div><br>
+                <input type="radio" name="sauce" value="alfredo"> <div class="inputText">White Sauce</div><br>
+                <input type="radio" name="sauce" value="bbq"> <div class="inputText">BBQ</div>
+              </form>
+            </center>
+          </div>
+          <div class="step4">
+            <h3>Toppings</h3>
+            <center>
+              <form>
+                <input type="checkbox" name="topping" value="chicken"> <div class="inputText">chicken</div><br>
+                <input type="checkbox" name="topping" value="salami"> <div class="inputText">salami</div><br>
+                <input type="checkbox" name="topping" value="bacon"> <div class="inputText">bacon</div><br>
+                <input type="checkbox" name="topping" value="anchovies"> <div class="inputText">anchovies</div><br>
+                <input type="checkbox" name="topping" value="peperoni"> <div class="inputText">peperoni</div><br>
+                <input type="checkbox" name="topping" value="canadian bacon"> <div class="inputText">canadian bacon</div><br>
+              </form>
+            </center>
+          </div>
+          <center>
+            <button class="next" type="button" name="button">Next</button>
+          </center>
         </div>
       </div>
       <div class="steps">
         <div class="row">
-          <div class="col on">
+          <div id="current" class="col on">
             <h6>Step 1</h6>
             <p>Size</p>
           </div>
@@ -58,7 +90,7 @@
           </div>
         </div>
       </div>
-      <button class="calculate" type="button" name="button">Submit</button>
+      <!--<button class="calculate" type="button" name="button">Submit</button>-->
     </div><!--end of container-->
 
     <center class="result">
