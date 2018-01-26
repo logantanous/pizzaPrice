@@ -39,6 +39,8 @@ Pizza.prototype.changePrice = function() {
 $(document).ready(function() {
   var steps = 1;
   $("input[name=topping]").removeAttr('checked');
+  $("input[name=marinara]").attr('checked');
+  $("input[name=cheese]").attr('checked');
 
   $(".next").click(function() {
     if (steps == 1) {
@@ -75,6 +77,7 @@ $(document).ready(function() {
     }
     if (steps == 4) {
       $(".step4").hide();
+      $(".next").hide();
       $(".result").html(
         "<h6>Your total is: $"+
         pizza1.changePrice()+
@@ -85,11 +88,38 @@ $(document).ready(function() {
     }
   })
 
+  $("input[name=cheese]").click(function() {
+    if ($(this).is(':checked')) {
+      $(".pizza").attr("src", "img/cheesepizza.png");
+    }
+    else {
+      $(".pizza").attr("src", "img/marinara.png");
+    }
+  })
+
   $("input[name=topping]").click(function() {
     if ($(this).is(':checked')) {
       pizza1.toppings.push($(this).val());
+      $("img[src='img/"+$(this).val()+".png']").css('display', 'inline-block');
     }
-    else {pizza1.toppings.pop($("input[name=topping]").val)}
+    else {
+      pizza1.toppings.pop($("input[name=topping]").val);
+      $("img[src='img/"+$(this).val()+".png']").hide();
+    }
+  })
+
+  $("input[name=sauce]").click(function() {
+    if (pizza1.cheese == false) {
+      if ($("input[value=marinara]").is(':checked')) {
+        $(".pizza").attr("src", "img/marinara.png");
+      }
+      if ($("input[value=alfredo]").is(':checked')) {
+        $(".pizza").attr("src", "img/alfredo.png");
+      }
+      if ($("input[value=bbq]").is(':checked')) {
+        $(".pizza").attr("src", "img/bbq.png");
+      }
+    }
   })
 
 })

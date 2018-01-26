@@ -79,3 +79,13 @@ body, html {
 }
 
 .result {margin-top: 20px;}
+
+.toppings img {
+  height: 290px;
+  position: absolute;
+  top: 21px;
+  margin-left: -148px;
+  display: none;
+}
+
+.stepBox {margin-top: 20px;}
