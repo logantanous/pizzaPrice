@@ -78,6 +78,7 @@ $(document).ready(function() {
     if (steps == 4) {
       $(".step4").hide();
       $(".next").hide();
+      $(".stepBox").hide();
       $(".result").html(
         "<h6>Your total is: $"+
         pizza1.changePrice()+
