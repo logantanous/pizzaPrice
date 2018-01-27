@@ -1,36 +1,26 @@
-# bank-account
+# Pizza
 
 
 ## Description
 
-This application is a demonstration of constructors and prototypes using JavaScript to create a simple Address Book app.
+This application is a demonstration of constructors and prototypes using JavaScript to create a simple Pizza price calculator
 
 ## Specs
 
-Program returns current value
-example output: [$400]
-
-Program takes name and initial deposit
-example input: [bob jones], [$300]
-example output: [You created an account]
-
-Program takes Deposit Amount
-example input: [$20] adds to current amount
-example output: [current value]
-
-Program takes Withdraw Amount
-example input: [$20] removes from current amount
-example output: [current value]
-
-Program displays name if it matches an existing
-example input: [Bob Jones]
-example output: [current value]
+<ol>
+<li>Program can create a pizza object on start</li>
+<li>Program allows choice of small, medium and large sizes, if you want cheese, 3 different sauces and 7 different toppings</li>
+<li>Program shows the next step block when clicking the button next</li>
+<li>Program displays your choices by swapping images if applicable<br>(sauces won't show if cheese is true)</li>
+<li>Program adds $1 to total per topping but $2 for bacon</li>
+<li>Program will display a final price below based on size and toppings</li>
+</ol>
 
 
 
 ## Setup
 
-Install address-book by cloning this repository.
+Install orderPizza by cloning this repository.
 
 ## Technologies Used
 
@@ -38,7 +28,7 @@ JavaScript and jQuery
 
 ### Legal
 
-Copyright (c) 2015 **Epicodus**
+Copyright (c) 2018 **Epicodus**
 
 This software is licensed under the MIT license.
 
